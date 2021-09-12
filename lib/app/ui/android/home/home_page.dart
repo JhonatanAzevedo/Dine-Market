@@ -44,61 +44,97 @@ class HomePage extends StatelessWidget {
                   height: height * 5,
                 ),
                 Container(
-                  height: width * 11,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: Column(
                     children: [
-                      Container(
-                        height: width * 11,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
-                        child: Row(
-                          children: [
-                            Container(
-                              height: width * 11,
-                              width: width * 11,
-                              child: TextButton(
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: width * 11,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10))),
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: width * 11,
+                                  width: width * 11,
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    child: Image(
+                                      image: AssetImage(
+                                          'assets/images/search.png'),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width: width * 60,
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                        hintText: 'Search',
+                                        border: InputBorder.none),
+                                    style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: width * 3.5,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            height: width * 11,
+                            width: width * 11,
+                            decoration: BoxDecoration(
+                              color: Color(0XFF212121),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10),
+                              ),
+                            ),
+                            child: TextButton(
                                 onPressed: () {},
                                 child: Image(
-                                  image: AssetImage('assets/images/search.png'),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: width * 60,
-                              child: TextField(
-                                decoration: InputDecoration(
-                                    hintText: 'Search',
-                                    border: InputBorder.none),
-                                style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: width * 3.5,
-                                ),
-                              ),
-                            ),
+                                  image:
+                                      AssetImage('assets/images/sliders.png'),
+                                )),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 1.5,
+                      ),
+                      Container(
+                        height: height * 2.2,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            Wrap(
+                              children: [
+                                Chip(
+                                  label: Text('Fresh'),
+                                  onDeleted: (){},
+                                  deleteIcon: Icon(Icons.close, size: height * 2, color: Colors.white,),
+                                  backgroundColor: Colors.black,
+                                  labelStyle: GoogleFonts.poppins(
+                                    color:  Colors.white,
+                                    fontWeight: FontWeight.w600
+                                  ),
+
+                                  visualDensity: VisualDensity.compact,
+                                  labelPadding: EdgeInsets.only(left: 8, right: 0 ),
+
+
+
+                                )
+                              ],
+                            )
                           ],
                         ),
                       ),
-                      Container(
-                        height: width * 11,
-                        width: width * 11,
-                        decoration: BoxDecoration(
-                          color: Color(0XFF212121),
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          ),
-                        ),
-                        child: TextButton(
-                            onPressed: () {},
-                            child: Image(
-                              image: AssetImage('assets/images/sliders.png'),
-                            )),
-                      ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),
