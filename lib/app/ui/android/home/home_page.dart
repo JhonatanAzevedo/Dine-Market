@@ -1,12 +1,18 @@
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dine_market/app/controllers/home_controller/home_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends GetView<HomeController> {
+  final homeController = Get.put(HomeController());
+
   final assetsImage = [
     'assets/images/cardImage.png',
-    'assets/images/user_profile.png'
+    'assets/images/user_profile.png',
+    'assets/images/cardImage.png',
   ];
 
   @override
@@ -17,145 +23,152 @@ class HomePage extends StatelessWidget {
       backgroundColor: Color(0XFFF6F7FC),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(top: 8.0, left: 30, right: 30),
+          padding: const EdgeInsets.only(
+            top: 8.0,
+          ),
           child: Column(
             children: [
               // top bar
-              Container(
-                height: height * 4.5,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      width: width * 39,
-                      height: height * 2.9,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                        image: AssetImage('assets/images/logo.png'),
-                      )),
-                    ),
-                    Container(
-                      child: Container(
+              Padding(
+                padding: const EdgeInsets.only(left: 30, right: 30),
+                child: Container(
+                  height: height * 4.5,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        width: width * 39,
+                        height: height * 2.9,
+                        child: Image(
+                          image: AssetImage('assets/images/logo.png'),
+                        ),
+                      ),
+                      Container(
                         height: height * 4.5,
                         width: height * 4.5,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage(
                                     'assets/images/user_profile.png'))),
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 ),
               ),
               SizedBox(
                 height: height * 5,
               ),
               Container(
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          height: width * 11,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
-                          child: Row(
-                            children: [
-                              Container(
-                                height: width * 11,
-                                width: width * 11,
-                                child: TextButton(
-                                  onPressed: () {},
-                                  child: Image(
-                                    image:
-                                        AssetImage('assets/images/search.png'),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 30, right: 30),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: width * 11,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10))),
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: width * 11,
+                                  width: width * 11,
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    child: Image(
+                                      image: AssetImage(
+                                          'assets/images/search.png'),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Container(
-                                width: width * 60,
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                      hintText: 'Search',
-                                      border: InputBorder.none),
-                                  style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: width * 3.5,
+                                Container(
+                                  width: width * 60,
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                        hintText: 'Search',
+                                        border: InputBorder.none),
+                                    style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: width * 3.5,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          height: width * 11,
-                          width: width * 11,
-                          decoration: BoxDecoration(
-                            color: Color(0XFF212121),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10),
+                              ],
                             ),
                           ),
-                          child: TextButton(
-                              onPressed: () {},
-                              child: Image(
-                                image: AssetImage('assets/images/sliders.png'),
-                              )),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: height * 1.5,
-                    ),
-                    Container(
-                      height: height * 2.2,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          Wrap(
-                            spacing: height * 1,
-                            children: [
-                              Chip(
-                                label: Text('Fresh'),
-                                onDeleted: () {},
-                                deleteIcon: Icon(
-                                  Icons.close,
-                                  size: height * 2,
-                                  color: Colors.white,
-                                ),
-                                backgroundColor: Colors.black,
-                                labelStyle: GoogleFonts.poppins(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600),
-                                visualDensity: VisualDensity.compact,
-                                labelPadding:
-                                    EdgeInsets.only(left: 8, right: 0),
+                          Container(
+                            height: width * 11,
+                            width: width * 11,
+                            decoration: BoxDecoration(
+                              color: Color(0XFF212121),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10),
                               ),
-                              Chip(
-                                label: Text('Chicken'),
-                                onDeleted: () {},
-                                deleteIcon: Icon(
-                                  Icons.close,
-                                  size: height * 2,
-                                  color: Colors.white,
-                                ),
-                                backgroundColor: Colors.black,
-                                labelStyle: GoogleFonts.poppins(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600),
-                                visualDensity: VisualDensity.compact,
-                                labelPadding:
-                                    EdgeInsets.only(left: 8, right: 0),
-                              )
-                            ],
+                            ),
+                            child: TextButton(
+                                onPressed: () {},
+                                child: Image(
+                                  image:
+                                      AssetImage('assets/images/sliders.png'),
+                                )),
                           ),
                         ],
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        height: height * 1.5,
+                      ),
+                      Container(
+                        height: height * 2.2,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            Wrap(
+                              spacing: height * 1,
+                              children: [
+                                Chip(
+                                  label: Text('Fresh'),
+                                  onDeleted: () {},
+                                  deleteIcon: Icon(
+                                    Icons.close,
+                                    size: height * 2,
+                                    color: Colors.white,
+                                  ),
+                                  backgroundColor: Colors.black,
+                                  labelStyle: GoogleFonts.poppins(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600),
+                                  visualDensity: VisualDensity.compact,
+                                  labelPadding:
+                                      EdgeInsets.only(left: 8, right: 0),
+                                ),
+                                Chip(
+                                  label: Text('Chicken'),
+                                  onDeleted: () {},
+                                  deleteIcon: Icon(
+                                    Icons.close,
+                                    size: height * 2,
+                                    color: Colors.white,
+                                  ),
+                                  backgroundColor: Colors.black,
+                                  labelStyle: GoogleFonts.poppins(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600),
+                                  visualDensity: VisualDensity.compact,
+                                  labelPadding:
+                                      EdgeInsets.only(left: 8, right: 0),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               SizedBox(
@@ -163,14 +176,14 @@ class HomePage extends StatelessWidget {
               ),
               Container(
                 decoration: BoxDecoration(
-                  color: Color(0xff212121),
                     borderRadius: BorderRadius.all(Radius.circular(10))),
-                height: height * 11,
                 child: CarouselSlider.builder(
                   itemCount: assetsImage.length,
                   options: CarouselOptions(
                     height: height * 11,
                     viewportFraction: 1,
+                    onPageChanged: (index, reason) =>
+                        homeController.setPositionCard(index),
                   ),
                   itemBuilder: (context, index, realIndex) {
                     final assetImage = assetsImage[index];
@@ -180,17 +193,44 @@ class HomePage extends StatelessWidget {
                   },
                 ),
               ),
+              SizedBox(
+                height: height * 1.5,
+              ),
+              buidIndicator(height, width),
             ],
           ),
         ),
       ),
     );
   }
+
+  Widget buidIndicator(h, w) {
+    return GetX<HomeController>(
+      builder: (homeController) {
+        return AnimatedSmoothIndicator(
+          
+          activeIndex: homeController.activePositionCard.value,
+          count: assetsImage.length,
+          effect: ExpandingDotsEffect(dotColor: Colors.grey, 
+          activeDotColor: Color(0XFF212121),
+          dotHeight:  h * 1,
+          dotWidth: w * 1.7,
+          spacing: w * 1,
+
+
+          ),
+        );
+      },
+    );
+  }
 }
 
 Widget buildCard(String assetImages, int index, w) {
   return Container(
+    width: w * 84,
+    margin: EdgeInsets.symmetric(horizontal: w * 1),
     decoration: BoxDecoration(
+      color: Color(0xff212121),
       borderRadius: BorderRadius.all(
         Radius.circular(10),
       ),
