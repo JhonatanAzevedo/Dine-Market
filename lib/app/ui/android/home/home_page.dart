@@ -29,146 +29,141 @@ class HomePage extends GetView<HomeController> {
           child: Column(
             children: [
               // top bar
-              Padding(
-                padding: const EdgeInsets.only(left: 30, right: 30),
-                child: Container(
-                  height: height * 4.5,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        alignment: Alignment.centerLeft,
-                        width: width * 39,
-                        height: height * 2.9,
-                        child: Image(
-                          image: AssetImage('assets/images/logo.png'),
-                        ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: width * 7),
+                height: height * 4.5,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      width: width * 39,
+                      height: height * 2.9,
+                      child: Image(
+                        image: AssetImage('assets/images/logo.png'),
                       ),
-                      Container(
-                        height: height * 4.5,
-                        width: height * 4.5,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(
-                                    'assets/images/user_profile.png'))),
-                      )
-                    ],
-                  ),
+                    ),
+                    Container(
+                      height: height * 4.5,
+                      width: height * 4.5,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage(
+                                  'assets/images/user_profile.png'))),
+                    )
+                  ],
                 ),
               ),
               SizedBox(
                 height: height * 5,
               ),
               Container(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 30, right: 30),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            height: width * 11,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10))),
-                            child: Row(
-                              children: [
-                                Container(
-                                  height: width * 11,
-                                  width: width * 11,
-                                  child: TextButton(
-                                    onPressed: () {},
-                                    child: Image(
-                                      image: AssetImage(
-                                          'assets/images/search.png'),
-                                    ),
+                margin: EdgeInsets.symmetric(horizontal: width * 7),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          height: width * 11,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10))),
+                          child: Row(
+                            children: [
+                              Container(
+                                height: width * 11,
+                                width: width * 11,
+                                child: TextButton(
+                                  onPressed: () {},
+                                  child: Image(
+                                    image:
+                                        AssetImage('assets/images/search.png'),
                                   ),
                                 ),
-                                Container(
-                                  width: width * 60,
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                        hintText: 'Search',
-                                        border: InputBorder.none),
-                                    style: GoogleFonts.poppins(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: width * 3.5,
-                                    ),
+                              ),
+                              Container(
+                                width: width * 60,
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                      hintText: 'Search',
+                                      border: InputBorder.none),
+                                  style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: width * 3.5,
                                   ),
                                 ),
-                              ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          height: width * 11,
+                          width: width * 11,
+                          decoration: BoxDecoration(
+                            color: Color(0XFF212121),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
                             ),
                           ),
-                          Container(
-                            height: width * 11,
-                            width: width * 11,
-                            decoration: BoxDecoration(
-                              color: Color(0XFF212121),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
+                          child: TextButton(
+                              onPressed: () {},
+                              child: Image(
+                                image: AssetImage('assets/images/sliders.png'),
+                              )),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: height * 1.5,
+                    ),
+                    Container(
+                      height: height * 2.2,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          Wrap(
+                            spacing: height * 1,
+                            children: [
+                              Chip(
+                                label: Text('Fresh'),
+                                onDeleted: () {},
+                                deleteIcon: Icon(
+                                  Icons.close,
+                                  size: height * 2,
+                                  color: Colors.white,
+                                ),
+                                backgroundColor: Colors.black,
+                                labelStyle: GoogleFonts.poppins(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600),
+                                visualDensity: VisualDensity.compact,
+                                labelPadding:
+                                    EdgeInsets.only(left: 8, right: 0),
                               ),
-                            ),
-                            child: TextButton(
-                                onPressed: () {},
-                                child: Image(
-                                  image:
-                                      AssetImage('assets/images/sliders.png'),
-                                )),
+                              Chip(
+                                label: Text('Chicken'),
+                                onDeleted: () {},
+                                deleteIcon: Icon(
+                                  Icons.close,
+                                  size: height * 2,
+                                  color: Colors.white,
+                                ),
+                                backgroundColor: Colors.black,
+                                labelStyle: GoogleFonts.poppins(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600),
+                                visualDensity: VisualDensity.compact,
+                                labelPadding:
+                                    EdgeInsets.only(left: 8, right: 0),
+                              )
+                            ],
                           ),
                         ],
                       ),
-                      SizedBox(
-                        height: height * 1.5,
-                      ),
-                      Container(
-                        height: height * 2.2,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          children: [
-                            Wrap(
-                              spacing: height * 1,
-                              children: [
-                                Chip(
-                                  label: Text('Fresh'),
-                                  onDeleted: () {},
-                                  deleteIcon: Icon(
-                                    Icons.close,
-                                    size: height * 2,
-                                    color: Colors.white,
-                                  ),
-                                  backgroundColor: Colors.black,
-                                  labelStyle: GoogleFonts.poppins(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w600),
-                                  visualDensity: VisualDensity.compact,
-                                  labelPadding:
-                                      EdgeInsets.only(left: 8, right: 0),
-                                ),
-                                Chip(
-                                  label: Text('Chicken'),
-                                  onDeleted: () {},
-                                  deleteIcon: Icon(
-                                    Icons.close,
-                                    size: height * 2,
-                                    color: Colors.white,
-                                  ),
-                                  backgroundColor: Colors.black,
-                                  labelStyle: GoogleFonts.poppins(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w600),
-                                  visualDensity: VisualDensity.compact,
-                                  labelPadding:
-                                      EdgeInsets.only(left: 8, right: 0),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
               SizedBox(
@@ -197,6 +192,42 @@ class HomePage extends GetView<HomeController> {
                 height: height * 1.5,
               ),
               buidIndicator(height, width),
+
+              SizedBox(
+                height: height * 3.8,
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: width * 8),
+                child: Column(
+                  children: [
+                    Container(
+                      child: Row(
+                        children: [
+                          Text(
+                            'Categories',
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.bold,
+                              fontSize: width * 5,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          categorie('abacate', 'Abacate', height, width),
+                          categorie('veggie', 'Veggie', height, width),
+                          categorie('fish', 'Fish', height, width),
+                          categorie('meat', 'Meat', height, width),
+                          categorie('dairy', 'Dairy', height, width),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              )
             ],
           ),
         ),
@@ -208,16 +239,14 @@ class HomePage extends GetView<HomeController> {
     return GetX<HomeController>(
       builder: (homeController) {
         return AnimatedSmoothIndicator(
-          
           activeIndex: homeController.activePositionCard.value,
           count: assetsImage.length,
-          effect: ExpandingDotsEffect(dotColor: Colors.grey, 
-          activeDotColor: Color(0XFF212121),
-          dotHeight:  h * 1,
-          dotWidth: w * 1.7,
-          spacing: w * 1,
-
-
+          effect: ExpandingDotsEffect(
+            dotColor: Colors.grey,
+            activeDotColor: Color(0XFF212121),
+            dotHeight: h * 1,
+            dotWidth: w * 1.7,
+            spacing: w * 1,
           ),
         );
       },
@@ -227,8 +256,7 @@ class HomePage extends GetView<HomeController> {
 
 Widget buildCard(String assetImages, int index, w) {
   return Container(
-    width: w * 84,
-    margin: EdgeInsets.symmetric(horizontal: w * 1),
+    margin: EdgeInsets.symmetric(horizontal: w * 7),
     decoration: BoxDecoration(
       color: Color(0xff212121),
       borderRadius: BorderRadius.all(
@@ -279,6 +307,45 @@ Widget buildCard(String assetImages, int index, w) {
           )
         ],
       ),
+    ),
+  );
+}
+
+Widget categorie(String image, String title, double height, double width) {
+  return Container(
+    child: Column(
+      children: [
+        Container(
+          height: width * 14,
+          width: width * 14,
+          alignment: Alignment.bottomCenter,
+          decoration: BoxDecoration(
+            color: Color(0XFFFFFF),
+            borderRadius: BorderRadius.all(
+              Radius.circular(100),
+            ),
+          ),
+          child: Container(
+            height: width * 8,
+            width: width * 8,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/images/$image.png'),
+                  fit: BoxFit.contain),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: height * 2,
+        ),
+        Text(
+          title,
+          style: GoogleFonts.poppins(
+              fontWeight: FontWeight.w600,
+              fontSize: width * 3.2,
+              color: Color(0XFF212121)),
+        ),
+      ],
     ),
   );
 }
