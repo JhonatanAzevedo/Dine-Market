@@ -36,6 +36,7 @@ class HomePage extends GetView<HomeController> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      //containar da logo
                       Container(
                         alignment: Alignment.centerLeft,
                         width: width * 39,
@@ -44,6 +45,8 @@ class HomePage extends GetView<HomeController> {
                           image: AssetImage('assets/images/logo.png'),
                         ),
                       ),
+
+                      //containar do perfil
                       Container(
                         height: height * 4.5,
                         width: height * 4.5,
@@ -55,9 +58,9 @@ class HomePage extends GetView<HomeController> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: height * 5,
-                ),
+                SizedBox(height: height * 5),
+
+                //Containe que contem o Search e o butao de flitros
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: width * 7),
                   child: Column(
@@ -73,17 +76,20 @@ class HomePage extends GetView<HomeController> {
                                     BorderRadius.all(Radius.circular(10))),
                             child: Row(
                               children: [
+                                //containe da lupa
                                 Container(
                                   height: width * 11,
                                   width: width * 11,
                                   child: TextButton(
                                     onPressed: () {},
                                     child: Image(
-                                      image:
-                                          AssetImage('assets/images/search.png'),
+                                      image: AssetImage(
+                                          'assets/images/search.png'),
                                     ),
                                   ),
                                 ),
+
+                                //container do Seach
                                 Container(
                                   width: width * 60,
                                   child: TextField(
@@ -99,6 +105,8 @@ class HomePage extends GetView<HomeController> {
                               ],
                             ),
                           ),
+
+                          //container do butao de flitra
                           Container(
                             height: width * 11,
                             width: width * 11,
@@ -111,11 +119,14 @@ class HomePage extends GetView<HomeController> {
                             child: TextButton(
                                 onPressed: () {},
                                 child: Image(
-                                  image: AssetImage('assets/images/sliders.png'),
+                                  image:
+                                      AssetImage('assets/images/sliders.png'),
                                 )),
                           ),
                         ],
                       ),
+
+                      // container dos butao do Chip (os exemplos de flitros)
                       Container(
                         height: height * 2.2,
                         child: ListView(
@@ -165,24 +176,24 @@ class HomePage extends GetView<HomeController> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: height * 4,
-                ),
+
+                SizedBox(height: height * 4),
+
+                // container do Carousel, onde passa os banner.
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   child: CarouselSlider.builder(
                     itemCount: assetsImage.length,
                     options: CarouselOptions(
-                      height: height * 11,
-                      viewportFraction: 1,
-                      onPageChanged: (index, reason) =>
-                          homeController.setPositionCard(index),
-                    ),
+                        height: height * 11,
+                        viewportFraction: 1,
+                        onPageChanged: (index, reason) => homeController.setPositionCard(index),
+                        ),
                     itemBuilder: (context, index, realIndex) {
                       final assetImage = assetsImage[index];
                       final w = width;
-        
+
                       return buildCard(assetImage, index, w);
                     },
                   ),
@@ -191,7 +202,7 @@ class HomePage extends GetView<HomeController> {
                   height: height * 1.5,
                 ),
                 buidIndicator(height, width),
-        
+
                 SizedBox(
                   height: height * 3.8,
                 ),
@@ -199,7 +210,7 @@ class HomePage extends GetView<HomeController> {
                   child: Column(
                     children: [
                       Container(
-                         margin: EdgeInsets.symmetric(horizontal: width * 7),
+                        margin: EdgeInsets.symmetric(horizontal: width * 7),
                         child: Row(
                           children: [
                             Text(
@@ -213,7 +224,7 @@ class HomePage extends GetView<HomeController> {
                         ),
                       ),
                       Container(
-                         margin: EdgeInsets.symmetric(horizontal: width * 7),
+                        margin: EdgeInsets.symmetric(horizontal: width * 7),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -228,51 +239,54 @@ class HomePage extends GetView<HomeController> {
                       SizedBox(
                         height: height * 3.8,
                       ),
-                      Container( 
-                          child: Column(
-                        children: [
-                          Container(
-                            margin: EdgeInsets.symmetric(horizontal: width * 8),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Recomendation',
-                                  style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18,
+                      Container(
+                        child: Column(
+                          children: [
+                            Container(
+                              margin:
+                                  EdgeInsets.symmetric(horizontal: width * 8),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Recomendation',
+                                    style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  'See all',
-                                  style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 13,
+                                  Text(
+                                    'See all',
+                                    style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 13,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            height: height * 2,
-                          ),
-                          Container(
-                            margin: EdgeInsets.only( top:  height * 2, bottom: height * 2),
-                            height:  height * 31.5,
-                            child: ListView(scrollDirection: Axis.horizontal,
-                            children: [
-                              SizedBox(width: width *7),
-                              productDark(width, height),
-                               SizedBox(width: width *7),
-                              productWhite(width, height),
-                              SizedBox(width: width *7),
-                               productDark(width, height),
-                                
-                              
-                            ],),
-                          )
-                        ],
-                      ),
+                            SizedBox(
+                              height: height * 2,
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(
+                                  top: height * 2, bottom: height * 2),
+                              height: height * 31.5,
+                              child: ListView(
+                                scrollDirection: Axis.horizontal,
+                                children: [
+                                  SizedBox(width: width * 7),
+                                  productDark(width, height),
+                                  SizedBox(width: width * 7),
+                                  productWhite(width, height),
+                                  SizedBox(width: width * 7),
+                                  productDark(width, height),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -526,7 +540,6 @@ Widget productDark(double width, double height) {
     ),
   );
 }
-
 
 Widget productWhite(double width, double height) {
   return Container(
