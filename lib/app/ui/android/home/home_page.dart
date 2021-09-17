@@ -22,213 +22,263 @@ class HomePage extends GetView<HomeController> {
     return Scaffold(
       backgroundColor: Color(0XFFF6F7FC),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(
-            top: 8.0,
-          ),
-          child: Column(
-            children: [
-              // top bar
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: width * 7),
-                height: height * 4.5,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      width: width * 39,
-                      height: height * 2.9,
-                      child: Image(
-                        image: AssetImage('assets/images/logo.png'),
-                      ),
-                    ),
-                    Container(
-                      height: height * 4.5,
-                      width: height * 4.5,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage(
-                                  'assets/images/user_profile.png'))),
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: height * 5,
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: width * 7),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          height: width * 11,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
-                          child: Row(
-                            children: [
-                              Container(
-                                height: width * 11,
-                                width: width * 11,
-                                child: TextButton(
-                                  onPressed: () {},
-                                  child: Image(
-                                    image:
-                                        AssetImage('assets/images/search.png'),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: width * 60,
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                      hintText: 'Search',
-                                      border: InputBorder.none),
-                                  style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: width * 3.5,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(
+              top: 8.0,
+            ),
+            child: Column(
+              children: [
+                // top bar
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: width * 7),
+                  height: height * 4.5,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        width: width * 39,
+                        height: height * 2.9,
+                        child: Image(
+                          image: AssetImage('assets/images/logo.png'),
                         ),
-                        Container(
-                          height: width * 11,
-                          width: width * 11,
-                          decoration: BoxDecoration(
-                            color: Color(0XFF212121),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10),
-                            ),
-                          ),
-                          child: TextButton(
-                              onPressed: () {},
-                              child: Image(
-                                image: AssetImage('assets/images/sliders.png'),
-                              )),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: height * 1.5,
-                    ),
-                    Container(
-                      height: height * 2.2,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          Wrap(
-                            spacing: height * 1,
-                            children: [
-                              Chip(
-                                label: Text('Fresh'),
-                                onDeleted: () {},
-                                deleteIcon: Icon(
-                                  Icons.close,
-                                  size: height * 2,
-                                  color: Colors.white,
-                                ),
-                                backgroundColor: Colors.black,
-                                labelStyle: GoogleFonts.poppins(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600),
-                                visualDensity: VisualDensity.compact,
-                                labelPadding:
-                                    EdgeInsets.only(left: 8, right: 0),
-                              ),
-                              Chip(
-                                label: Text('Chicken'),
-                                onDeleted: () {},
-                                deleteIcon: Icon(
-                                  Icons.close,
-                                  size: height * 2,
-                                  color: Colors.white,
-                                ),
-                                backgroundColor: Colors.black,
-                                labelStyle: GoogleFonts.poppins(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600),
-                                visualDensity: VisualDensity.compact,
-                                labelPadding:
-                                    EdgeInsets.only(left: 8, right: 0),
-                              )
-                            ],
-                          ),
-                        ],
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: height * 4,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                child: CarouselSlider.builder(
-                  itemCount: assetsImage.length,
-                  options: CarouselOptions(
-                    height: height * 11,
-                    viewportFraction: 1,
-                    onPageChanged: (index, reason) =>
-                        homeController.setPositionCard(index),
+                      Container(
+                        height: height * 4.5,
+                        width: height * 4.5,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(
+                                    'assets/images/user_profile.png'))),
+                      )
+                    ],
                   ),
-                  itemBuilder: (context, index, realIndex) {
-                    final assetImage = assetsImage[index];
-                    final w = width;
-
-                    return buildCard(assetImage, index, w);
-                  },
                 ),
-              ),
-              SizedBox(
-                height: height * 1.5,
-              ),
-              buidIndicator(height, width),
-
-              SizedBox(
-                height: height * 3.8,
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: width * 8),
-                child: Column(
-                  children: [
-                    Container(
-                      child: Row(
-                        children: [
-                          Text(
-                            'Categories',
-                            style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.bold,
-                              fontSize: width * 5,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      child: Row(
+                SizedBox(
+                  height: height * 5,
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: width * 7),
+                  child: Column(
+                    children: [
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          categorie('abacate', 'Abacate', height, width),
-                          categorie('veggie', 'Veggie', height, width),
-                          categorie('fish', 'Fish', height, width),
-                          categorie('meat', 'Meat', height, width),
-                          categorie('dairy', 'Dairy', height, width),
+                          Container(
+                            height: width * 11,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10))),
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: width * 11,
+                                  width: width * 11,
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    child: Image(
+                                      image:
+                                          AssetImage('assets/images/search.png'),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width: width * 60,
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                        hintText: 'Search',
+                                        border: InputBorder.none),
+                                    style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: width * 3.5,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            height: width * 11,
+                            width: width * 11,
+                            decoration: BoxDecoration(
+                              color: Color(0XFF212121),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10),
+                              ),
+                            ),
+                            child: TextButton(
+                                onPressed: () {},
+                                child: Image(
+                                  image: AssetImage('assets/images/sliders.png'),
+                                )),
+                          ),
                         ],
                       ),
-                    )
-                  ],
+                      Container(
+                        height: height * 2.2,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            Wrap(
+                              spacing: height * 1,
+                              children: [
+                                Chip(
+                                  label: Text('Fresh'),
+                                  onDeleted: () {},
+                                  deleteIcon: Icon(
+                                    Icons.close,
+                                    size: height * 2,
+                                    color: Colors.white,
+                                  ),
+                                  backgroundColor: Colors.black,
+                                  labelStyle: GoogleFonts.poppins(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                  visualDensity: VisualDensity.compact,
+                                  labelPadding:
+                                      EdgeInsets.only(left: 8, right: 0),
+                                ),
+                                Chip(
+                                  label: Text('Chicken'),
+                                  onDeleted: () {},
+                                  deleteIcon: Icon(
+                                    Icons.close,
+                                    size: height * 2,
+                                    color: Colors.white,
+                                  ),
+                                  backgroundColor: Colors.black,
+                                  labelStyle: GoogleFonts.poppins(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600),
+                                  visualDensity: VisualDensity.compact,
+                                  labelPadding:
+                                      EdgeInsets.only(left: 8, right: 0),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              )
-            ],
+                SizedBox(
+                  height: height * 4,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                  child: CarouselSlider.builder(
+                    itemCount: assetsImage.length,
+                    options: CarouselOptions(
+                      height: height * 11,
+                      viewportFraction: 1,
+                      onPageChanged: (index, reason) =>
+                          homeController.setPositionCard(index),
+                    ),
+                    itemBuilder: (context, index, realIndex) {
+                      final assetImage = assetsImage[index];
+                      final w = width;
+        
+                      return buildCard(assetImage, index, w);
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: height * 1.5,
+                ),
+                buidIndicator(height, width),
+        
+                SizedBox(
+                  height: height * 3.8,
+                ),
+                Container(
+                  child: Column(
+                    children: [
+                      Container(
+                         margin: EdgeInsets.symmetric(horizontal: width * 7),
+                        child: Row(
+                          children: [
+                            Text(
+                              'Categories',
+                              style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.bold,
+                                fontSize: width * 5,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                         margin: EdgeInsets.symmetric(horizontal: width * 7),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            categorie('fruits', 'Fruits', height, width),
+                            categorie('veggie', 'Veggie', height, width),
+                            categorie('fish', 'Fish', height, width),
+                            categorie('meat', 'Meat', height, width),
+                            categorie('dairy', 'Dairy', height, width),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: height * 3.8,
+                      ),
+                      Container( 
+                          child: Column(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.symmetric(horizontal: width * 8),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Recomendation',
+                                  style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                                Text(
+                                  'See all',
+                                  style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 13,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            height: height * 2,
+                          ),
+                          Container(
+                            margin: EdgeInsets.only( top:  height * 2, bottom: height * 2),
+                            height:  height * 31.5,
+                            child: ListView(scrollDirection: Axis.horizontal,
+                            children: [
+                              SizedBox(width: width *7),
+                              productDark(width, height),
+                               SizedBox(width: width *7),
+                              productWhite(width, height),
+                              SizedBox(width: width *7),
+                               productDark(width, height),
+                                
+                              
+                            ],),
+                          )
+                        ],
+                      ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -345,6 +395,261 @@ Widget categorie(String image, String title, double height, double width) {
               fontSize: width * 3.2,
               color: Color(0XFF212121)),
         ),
+      ],
+    ),
+  );
+}
+
+Widget productDark(double width, double height) {
+  return Container(
+    width: width * 42,
+    alignment: Alignment.center,
+    decoration: BoxDecoration(
+        color: Color(0XFF212121),
+        borderRadius: BorderRadius.all(Radius.circular(20))),
+    child: Column(
+      children: [
+        Container(
+          margin: EdgeInsets.only(
+            right: height * 2,
+            left: height * 2,
+            top: height * 2,
+          ),
+          height: height * 16,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/chicken.png'),
+            ),
+          ),
+        ),
+        Container(
+          width: width * 42,
+          height: height * 5,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: Text(
+              'Chicken Leg',
+              textAlign: TextAlign.start,
+              style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                  fontSize: width * 4.3),
+            ),
+          ),
+        ),
+        Container(
+          alignment: Alignment.center,
+          height: height * 8,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: width * 4),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  width: width * 16,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: height * 8,
+                        child: Padding(
+                          padding: EdgeInsets.only(top: height * 2),
+                          child: Text(
+                            '\$',
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white,
+                                fontSize: width * 3.5),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        alignment: Alignment.topCenter,
+                        height: height * 8,
+                        child: Padding(
+                          padding: EdgeInsets.only(top: height * 1.3),
+                          child: Text(
+                            '10',
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white,
+                              fontSize: width * 6.8,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: height * 7.2,
+                        child: Padding(
+                          padding: EdgeInsets.only(top: height * 2),
+                          child: Text(
+                            '.50',
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                              fontSize: width * 3.5,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  width: width * 16,
+                  height: height * 4.8,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Order',
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w600,
+                        fontSize: width * 3.5,
+                        color: Colors.white,
+                      ),
+                    ),
+                    style: TextButton.styleFrom(
+                      backgroundColor: Color(0XFF585858),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        )
+      ],
+    ),
+  );
+}
+
+
+Widget productWhite(double width, double height) {
+  return Container(
+    width: width * 42,
+    alignment: Alignment.center,
+    decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.all(Radius.circular(20))),
+    child: Column(
+      children: [
+        Container(
+          margin: EdgeInsets.only(
+            right: height * 2,
+            left: height * 2,
+            top: height * 2,
+          ),
+          height: height * 16,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/avocado.png'),
+            ),
+          ),
+        ),
+        Container(
+          width: width * 42,
+          height: height * 5,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: Text(
+              'Avocado',
+              textAlign: TextAlign.start,
+              style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black,
+                  fontSize: width * 4.3),
+            ),
+          ),
+        ),
+        Container(
+          alignment: Alignment.center,
+          height: height * 8,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: width * 4),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  width: width * 16,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: height * 8,
+                        child: Padding(
+                          padding: EdgeInsets.only(top: height * 2),
+                          child: Text(
+                            '\$',
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white,
+                                fontSize: width * 3.5),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        alignment: Alignment.topCenter,
+                        height: height * 8,
+                        child: Padding(
+                          padding: EdgeInsets.only(top: height * 1.3),
+                          child: Text(
+                            '6',
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black,
+                              fontSize: width * 6.8,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: height * 7.2,
+                        child: Padding(
+                          padding: EdgeInsets.only(top: height * 2),
+                          child: Text(
+                            '.50',
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black,
+                              fontSize: width * 3.5,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  width: width * 16,
+                  height: height * 4.8,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Order',
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w600,
+                        fontSize: width * 3.5,
+                        color: Colors.white,
+                      ),
+                    ),
+                    style: TextButton.styleFrom(
+                      backgroundColor: Color(0XFF585858),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        )
       ],
     ),
   );
