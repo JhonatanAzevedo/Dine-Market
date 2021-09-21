@@ -415,255 +415,261 @@ Widget categorie(String image, String title, double height, double width) {
 }
 
 Widget productDark(double width, double height) {
-  return Container(
-    width: width * 42,
-    alignment: Alignment.center,
-    decoration: BoxDecoration(
-        color: Color(0XFF212121),
-        borderRadius: BorderRadius.all(Radius.circular(20))),
-    child: Column(
-      children: [
-        Container(
-          margin: EdgeInsets.only(
-            right: height * 2,
-            left: height * 2,
-            top: height * 2,
-          ),
-          height: height * 16,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/chicken.png'),
+  return InkWell(
+    onTap: () => Get.toNamed('/products-details'),
+    child: Container(
+      width: width * 42,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+          color: Color(0XFF212121),
+          borderRadius: BorderRadius.all(Radius.circular(20))),
+      child: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.only(
+              right: height * 2,
+              left: height * 2,
+              top: height * 2,
+            ),
+            height: height * 16,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/chicken.png'),
+              ),
             ),
           ),
-        ),
-        Container(
-          width: width * 42,
-          height: height * 5,
-          child: Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: Text(
-              'Chicken Leg',
-              textAlign: TextAlign.start,
-              style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                  fontSize: width * 4.3),
+          Container(
+            width: width * 42,
+            height: height * 5,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16.0),
+              child: Text(
+                'Chicken Leg',
+                textAlign: TextAlign.start,
+                style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                    fontSize: width * 4.3),
+              ),
             ),
           ),
-        ),
-        Container(
-          alignment: Alignment.center,
-          height: height * 8,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: width * 4),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: width * 16,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: height * 8,
-                        child: Padding(
-                          padding: EdgeInsets.only(top: height * 2),
-                          child: Text(
-                            '\$',
-                            style: GoogleFonts.poppins(
+          Container(
+            alignment: Alignment.center,
+            height: height * 8,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: width * 4),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    width: width * 16,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: height * 8,
+                          child: Padding(
+                            padding: EdgeInsets.only(top: height * 2),
+                            child: Text(
+                              '\$',
+                              style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white,
+                                  fontSize: width * 3.5),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          alignment: Alignment.topCenter,
+                          height: height * 8,
+                          child: Padding(
+                            padding: EdgeInsets.only(top: height * 1.3),
+                            child: Text(
+                              '10',
+                              style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w400,
+                                color: Colors.white,
+                                fontSize: width * 6.8,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: height * 7.2,
+                          child: Padding(
+                            padding: EdgeInsets.only(top: height * 2),
+                            child: Text(
+                              '.50',
+                              style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w500,
                                 color: Colors.white,
-                                fontSize: width * 3.5),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        alignment: Alignment.topCenter,
-                        height: height * 8,
-                        child: Padding(
-                          padding: EdgeInsets.only(top: height * 1.3),
-                          child: Text(
-                            '10',
-                            style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w400,
-                              color: Colors.white,
-                              fontSize: width * 6.8,
+                                fontSize: width * 3.5,
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                      Container(
-                        height: height * 7.2,
-                        child: Padding(
-                          padding: EdgeInsets.only(top: height * 2),
-                          child: Text(
-                            '.50',
-                            style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white,
-                              fontSize: width * 3.5,
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Container(
-                  width: width * 16,
-                  height: height * 4.8,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Order',
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w600,
-                        fontSize: width * 3.5,
-                        color: Colors.white,
-                      ),
+                        )
+                      ],
                     ),
-                    style: TextButton.styleFrom(
-                      backgroundColor: Color(0XFF585858),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(20),
+                  ),
+                  Container(
+                    width: width * 16,
+                    height: height * 4.8,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Order',
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w600,
+                          fontSize: width * 3.5,
+                          color: Colors.white,
+                        ),
+                      ),
+                      style: TextButton.styleFrom(
+                        backgroundColor: Color(0XFF585858),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(20),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     ),
   );
 }
 
 Widget productWhite(double width, double height) {
-  return Container(
-    width: width * 42,
-    alignment: Alignment.center,
-    decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(20))),
-    child: Column(
-      children: [
-        Container(
-          margin: EdgeInsets.only(
-            right: height * 2,
-            left: height * 2,
-            top: height * 2,
-          ),
-          height: height * 16,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/avocado.png'),
+  return InkWell(
+      onTap: () => Get.toNamed('/products-details'),
+    child: Container(
+      width: width * 42,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(20))),
+      child: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.only(
+              right: height * 2,
+              left: height * 2,
+              top: height * 2,
+            ),
+            height: height * 16,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/avocado.png'),
+              ),
             ),
           ),
-        ),
-        Container(
-          width: width * 42,
-          height: height * 5,
-          child: Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: Text(
-              'Avocado',
-              textAlign: TextAlign.start,
-              style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black,
-                  fontSize: width * 4.3),
+          Container(
+            width: width * 42,
+            height: height * 5,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16.0),
+              child: Text(
+                'Avocado',
+                textAlign: TextAlign.start,
+                style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black,
+                    fontSize: width * 4.3),
+              ),
             ),
           ),
-        ),
-        Container(
-          alignment: Alignment.center,
-          height: height * 8,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: width * 4),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: width * 16,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: height * 8,
-                        child: Padding(
-                          padding: EdgeInsets.only(top: height * 2),
-                          child: Text(
-                            '\$',
-                            style: GoogleFonts.poppins(
+          Container(
+            alignment: Alignment.center,
+            height: height * 8,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: width * 4),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    width: width * 16,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: height * 8,
+                          child: Padding(
+                            padding: EdgeInsets.only(top: height * 2),
+                            child: Text(
+                              '\$',
+                              style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white,
+                                  fontSize: width * 3.5),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          alignment: Alignment.topCenter,
+                          height: height * 8,
+                          child: Padding(
+                            padding: EdgeInsets.only(top: height * 1.3),
+                            child: Text(
+                              '6',
+                              style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w400,
+                                color: Colors.black,
+                                fontSize: width * 6.8,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: height * 7.2,
+                          child: Padding(
+                            padding: EdgeInsets.only(top: height * 2),
+                            child: Text(
+                              '.50',
+                              style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w500,
-                                color: Colors.white,
-                                fontSize: width * 3.5),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        alignment: Alignment.topCenter,
-                        height: height * 8,
-                        child: Padding(
-                          padding: EdgeInsets.only(top: height * 1.3),
-                          child: Text(
-                            '6',
-                            style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w400,
-                              color: Colors.black,
-                              fontSize: width * 6.8,
+                                color: Colors.black,
+                                fontSize: width * 3.5,
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                      Container(
-                        height: height * 7.2,
-                        child: Padding(
-                          padding: EdgeInsets.only(top: height * 2),
-                          child: Text(
-                            '.50',
-                            style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black,
-                              fontSize: width * 3.5,
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Container(
-                  width: width * 16,
-                  height: height * 4.8,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Order',
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w600,
-                        fontSize: width * 3.5,
-                        color: Colors.white,
-                      ),
+                        )
+                      ],
                     ),
-                    style: TextButton.styleFrom(
-                      backgroundColor: Color(0XFF585858),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(20),
+                  ),
+                  Container(
+                    width: width * 16,
+                    height: height * 4.8,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Order',
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w600,
+                          fontSize: width * 3.5,
+                          color: Colors.white,
+                        ),
+                      ),
+                      style: TextButton.styleFrom(
+                        backgroundColor: Color(0XFF585858),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(20),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     ),
   );
 }
