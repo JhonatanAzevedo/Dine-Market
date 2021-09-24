@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProductDetails extends StatelessWidget {
-
   final amountProduct = ControlProducts();
-
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +13,14 @@ class ProductDetails extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
+            //Neste container tem os botões do topo o de voltar, e o carrinho de compra.
             Container(
               margin: EdgeInsets.only(
                   left: width * 7, right: width * 7, bottom: width * 3.5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  //container que contem o estilo em volta do botão
                   Container(
                     height: height * 6,
                     width: height * 6,
@@ -28,6 +28,7 @@ class ProductDetails extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
+                    // butão volta para Home
                     child: IconButton(
                       icon: Container(
                         child: Padding(
@@ -40,6 +41,8 @@ class ProductDetails extends StatelessWidget {
                       onPressed: () => Navigator.of(context).pop(),
                     ),
                   ),
+
+                  //container que contem o estilo em volta do botão
                   Container(
                     height: height * 6,
                     width: height * 6,
@@ -47,6 +50,7 @@ class ProductDetails extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
+                    // butao carinho de compra.
                     child: IconButton(
                       icon: Container(
                         child: Padding(
@@ -62,6 +66,9 @@ class ProductDetails extends StatelessWidget {
                 ],
               ),
             ),
+
+            /* neste container tem a chamada do widget do cardProducts,
+             que sao os botoes de escolher o tamanho do produto */
             Container(
               alignment: Alignment.centerRight,
               child: Padding(
@@ -69,6 +76,9 @@ class ProductDetails extends StatelessWidget {
                 child: cardProducts(width, height),
               ),
             ),
+
+            /* Neste container fica as configurações da imagens de produto,
+            e a imagem que esta na parte inferior dele */
             Container(
               margin: EdgeInsets.only(left: width * 7, right: width * 7),
               height: height * 37.5,
@@ -77,6 +87,7 @@ class ProductDetails extends StatelessWidget {
                 padding: EdgeInsets.only(top: height * 0.5),
                 child: Stack(
                   children: [
+                    /* Neste container fica a imagem do produto. */
                     Container(
                       height: height * 30,
                       decoration: BoxDecoration(
@@ -87,6 +98,7 @@ class ProductDetails extends StatelessWidget {
                     Container(
                       height: height * 37,
                       alignment: Alignment.bottomCenter,
+                      /* Neste container fica a imagem da parte inferior do produto. */
                       child: Container(
                         height: height * 22,
                         decoration: BoxDecoration(
@@ -97,7 +109,7 @@ class ProductDetails extends StatelessWidget {
                       ),
                     ),
 
-                    //Efeito opaco
+                    //Efeito opaco na imagem do frango
                     Container(
                       height: height * 30,
                       decoration: BoxDecoration(
@@ -108,13 +120,17 @@ class ProductDetails extends StatelessWidget {
                 ),
               ),
             ),
+
             Expanded(
+              //container que vai expandir.
               child: Container(
                 color: Colors.white,
+                //Container que ira tem a margim para poder ter outros widgts.
                 child: Container(
                   margin: EdgeInsets.only(left: width * 7, right: width * 7),
                   child: Column(
                     children: [
+                      // Neste container que define o tamanho, e tem o texto "CHICKEN MEAT".
                       Container(
                         height: height * 13,
                         padding: EdgeInsets.only(
@@ -130,6 +146,9 @@ class ProductDetails extends StatelessWidget {
                                   fontSize: height * 3,
                                   color: Color(0XFF212121)),
                             ),
+
+                            /* Neste container tem a configuraçao de tamanho,
+                            e outros containers que tem o contador de quantidades de produto.  */
                             Container(
                               height: height * 5.2,
                               width: width * 28,
@@ -144,48 +163,53 @@ class ProductDetails extends StatelessWidget {
                                     Expanded(
                                       flex: 1,
                                       child: InkWell(
-                                        onTap: () => amountProduct.decrementAmount(),
+                                        onTap: () =>
+                                            amountProduct.decrementAmount(),
+
+                                        //botao de diminuir a quantidade dos itens.
                                         child: Container(
-                                            alignment: Alignment.center,
-                                            width: height * 2.8,
-                                            height: height * 2.8,
-                                            decoration: BoxDecoration(
-                                                color: Color(0XFFFFFFFF),
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(8)),
-                                                    ),
-                                            child: Icon(
-                                              Icons.remove,
-                                              size: width * 4,
-                                            ),
-                                            ),
+                                          alignment: Alignment.center,
+                                          width: height * 2.8,
+                                          height: height * 2.8,
+                                          decoration: BoxDecoration(
+                                            color: Color(0XFFFFFFFF),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(8)),
+                                          ),
+                                          child: Icon(
+                                            Icons.remove,
+                                            size: width * 4,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 2,
+                                      // Contem o quantidade de itens.
                                       child: Container(
                                         alignment: Alignment.center,
-                                          child: StreamBuilder<int>(
-                                            initialData: 1,
-                                            stream: amountProduct.myStream,
-                                            builder: (_,__){
-                                              return Text(
-                                                amountProduct.amount.toString(),
-                                            style: GoogleFonts.poppins(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 22,
-                                            color: Color(0XFF212121)),
-                                                );
-                                            },
-                                          ),
-                                       
-                                       ),
+                                        child: StreamBuilder<int>(
+                                          initialData: 1,
+                                          stream: amountProduct.myStream,
+                                          builder: (_, __) {
+                                            return Text(
+                                              amountProduct.amount.toString(),
+                                              style: GoogleFonts.poppins(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 22,
+                                                  color: Color(0XFF212121)),
+                                            );
+                                          },
+                                        ),
                                       ),
-                                    
+                                    ),
                                     Expanded(
                                       flex: 1,
                                       child: InkWell(
-                                        onTap: () => amountProduct.incrementAmount(),
+                                        onTap: () =>
+                                            amountProduct.incrementAmount(),
+
+                                        // Botao de adicionar mais itens.
                                         child: Container(
                                           width: height * 2.8,
                                           height: height * 2.8,
@@ -202,10 +226,12 @@ class ProductDetails extends StatelessWidget {
                                       ),
                                     ),
                                   ]),
-                            )
+                            ),
                           ],
                         ),
                       ),
+
+                      // Neste container tem o texto "DESCRIPTION".
                       Container(
                         padding: EdgeInsets.only(bottom: height * 1.2),
                         width: width * 100,
@@ -216,11 +242,14 @@ class ProductDetails extends StatelessWidget {
                               fontWeight: FontWeight.bold),
                         ),
                       ),
+
+                      //Neste container esta o tamanho e o Stack para fazer a configuraçao da descriçao.
                       Container(
                         padding: EdgeInsets.only(bottom: height * 2.5),
                         height: height * 13.5,
                         child: Stack(
                           children: [
+                            //Neste container esta o texto de descriçao do produto.
                             Container(
                               height: height * 13,
                               child: SingleChildScrollView(
@@ -233,20 +262,25 @@ class ProductDetails extends StatelessWidget {
                                 ),
                               ),
                             ),
+
+                            //Este container deixar o texto da descriçao em degrade.
                             Container(
-                              decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                      begin: Alignment.topCenter,
-                                      end: Alignment.bottomCenter,
-                                      colors: [
-                                    Color(0X00FFFFFF),
-                                    Color(0XFFFFFFFF),
-                                  ])),
                               height: height * 13,
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      Color(0X00FFFFFF),
+                                      Color(0XFFFFFFFF),
+                                    ]),
+                              ),
                             ),
                           ],
                         ),
                       ),
+
+                      // Container que tem define o tamanho e o estilo da Order Now e valor do item.
                       Container(
                         height: height * 7.8,
                         decoration: BoxDecoration(
@@ -257,6 +291,7 @@ class ProductDetails extends StatelessWidget {
                           padding: EdgeInsets.symmetric(horizontal: width * 4),
                           child: Row(
                             children: [
+                              //Contem a configuraçao de fora do carrinho de compra.
                               Container(
                                 height: width * 10,
                                 width: width * 10,
@@ -266,6 +301,8 @@ class ProductDetails extends StatelessWidget {
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10)),
                                 ),
+
+                                //Contem a imagem do carrinho de compra.
                                 child: Container(
                                   height: width * 4,
                                   width: width * 4,
@@ -275,6 +312,8 @@ class ProductDetails extends StatelessWidget {
                                               'assets/images/shopping_cart_icon_ligth.png'))),
                                 ),
                               ),
+
+                              //Container contem o texto "ORDER NOW".
                               Container(
                                 alignment: Alignment.center,
                                 width: width * 40,
@@ -294,6 +333,8 @@ class ProductDetails extends StatelessWidget {
                                           fontSize: width * 4.2)),
                                 ),
                               ),
+
+                              //Container que tem o tamnho que vai ter o valor do produto.
                               Container(
                                 width: width * 28,
                                 alignment: Alignment.center,
@@ -302,6 +343,7 @@ class ProductDetails extends StatelessWidget {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
+                                      //Contem o texto "$".
                                       Container(
                                         height: height * 3.5,
                                         child: Text('\$',
@@ -310,6 +352,8 @@ class ProductDetails extends StatelessWidget {
                                                 color: Colors.white,
                                                 fontSize: width * 3.5)),
                                       ),
+
+                                      //Contem o valor do produto.
                                       Container(
                                         alignment: Alignment.center,
                                         height: height * 5,
@@ -319,6 +363,8 @@ class ProductDetails extends StatelessWidget {
                                                 color: Colors.white,
                                                 fontSize: width * 6.8)),
                                       ),
+
+                                      //Contem o valor em centavos.
                                       Container(
                                         height: height * 3.5,
                                         child: Text('.18',
@@ -347,7 +393,9 @@ class ProductDetails extends StatelessWidget {
   }
 }
 
+// Widigt que faz os botoes de escolher o tamanho do produto.
 Widget cardProducts(width, height) {
+  // Container que contem o Stack.
   return Container(
     child: Stack(
       children: [
@@ -356,6 +404,7 @@ Widget cardProducts(width, height) {
           left: width * 17,
           child: Transform.rotate(
             angle: 0.8,
+            //container que fica por tras para poder mostra a ponta que aponta para o produto.
             child: Container(
               height: width * 3,
               width: width * 3,
@@ -365,6 +414,9 @@ Widget cardProducts(width, height) {
             ),
           ),
         ),
+
+        //Containe que tem as configuraçoes de tamanho e o estilo da borda.
+        // nele ira ter outros containers que vao esta os botoes de tamanho.
         Container(
           margin: EdgeInsets.only(bottom: width * 1.5),
           decoration: BoxDecoration(
@@ -375,6 +427,7 @@ Widget cardProducts(width, height) {
             padding: EdgeInsets.symmetric(vertical: height * 1.8),
             child: Row(
               children: [
+                //Contem o texto "SIZE".
                 Container(
                   width: width * 19,
                   child: Text(
@@ -384,6 +437,8 @@ Widget cardProducts(width, height) {
                         fontWeight: FontWeight.bold, fontSize: height * 1.6),
                   ),
                 ),
+
+                //Container que ira conter os botoes "S" e "L".
                 Container(
                   width: width * 18,
                   child: Padding(
@@ -391,6 +446,7 @@ Widget cardProducts(width, height) {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
+                        //Botao "S".
                         Container(
                           height: height * 3,
                           width: height * 3,
@@ -407,6 +463,8 @@ Widget cardProducts(width, height) {
                                 color: Colors.white),
                           ),
                         ),
+
+                        //Botao "L".
                         Container(
                           height: height * 3,
                           width: height * 3,
