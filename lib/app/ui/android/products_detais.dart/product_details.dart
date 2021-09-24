@@ -1,7 +1,12 @@
+import 'package:dine_market/app/bloc/product_details_bloc/product_details.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProductDetails extends StatelessWidget {
+
+  final amountProduct = ControlProducts();
+
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height / 100;
@@ -136,37 +141,64 @@ class ProductDetails extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
                                   children: [
-                                    Container(
+                                    Expanded(
+                                      flex: 1,
+                                      child: InkWell(
+                                        onTap: () => amountProduct.decrementAmount(),
+                                        child: Container(
+                                            alignment: Alignment.center,
+                                            width: height * 2.8,
+                                            height: height * 2.8,
+                                            decoration: BoxDecoration(
+                                                color: Color(0XFFFFFFFF),
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(8)),
+                                                    ),
+                                            child: Icon(
+                                              Icons.remove,
+                                              size: width * 4,
+                                            ),
+                                            ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 2,
+                                      child: Container(
                                         alignment: Alignment.center,
-                                        width: height * 2.8,
-                                        height: height * 2.8,
-                                        decoration: BoxDecoration(
-                                            color: Color(0XFFFFFFFF),
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(8))),
-                                        child: Icon(
-                                          Icons.remove,
-                                          size: width * 4,
-                                        )),
-                                    Container(
-                                        child: Text(
-                                      '2',
-                                      style: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 22,
-                                          color: Color(0XFF212121)),
-                                    )),
-                                    Container(
-                                      width: height * 2.8,
-                                      height: height * 2.8,
-                                      decoration: BoxDecoration(
-                                          color: Color(0XFF212121),
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(8))),
-                                      child: Icon(
-                                        Icons.add_rounded,
-                                        color: Colors.white,
-                                        size: width * 4,
+                                          child: StreamBuilder<int>(
+                                            initialData: 1,
+                                            stream: amountProduct.myStream,
+                                            builder: (_,__){
+                                              return Text(
+                                                amountProduct.amount.toString(),
+                                            style: GoogleFonts.poppins(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 22,
+                                            color: Color(0XFF212121)),
+                                                );
+                                            },
+                                          ),
+                                       
+                                       ),
+                                      ),
+                                    
+                                    Expanded(
+                                      flex: 1,
+                                      child: InkWell(
+                                        onTap: () => amountProduct.incrementAmount(),
+                                        child: Container(
+                                          width: height * 2.8,
+                                          height: height * 2.8,
+                                          decoration: BoxDecoration(
+                                              color: Color(0XFF212121),
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(8))),
+                                          child: Icon(
+                                            Icons.add_rounded,
+                                            color: Colors.white,
+                                            size: width * 4,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ]),
