@@ -9,13 +9,14 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 class HomePage extends GetView<HomeController> {
   final homeController = Get.put(HomeController());
 
-
   // array de imagens dos banner
   final assetsImage = [
     'assets/images/cardImage.png',
-    'assets/images/user_profile.png',
-    'assets/images/cardImage.png',
-     'assets/images/user_profile.png',
+    'assets/images/fruits.png',
+    'assets/images/fish.png',
+    'assets/images/veggie.png',
+    'assets/images/meat.png',
+    'assets/images/dairy.png',
   ];
 
   @override
@@ -71,7 +72,6 @@ class HomePage extends GetView<HomeController> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-
                           //Container que contem a lupa, search e o botao de filtra.
                           Container(
                             height: width * 11,
@@ -111,7 +111,7 @@ class HomePage extends GetView<HomeController> {
                             ),
                           ),
 
-                          //container do butao de flitra
+                          //container do botao de flitra
                           Container(
                             height: width * 11,
                             width: width * 11,
@@ -204,23 +204,17 @@ class HomePage extends GetView<HomeController> {
                     },
                   ),
                 ),
-                SizedBox(
-                  height: height * 1.5,
-                ),
-                
+                SizedBox(height: height * 1.5),
+
                 //widget para mostra as indicaçoes do banner que fica em baixo dele.
                 buidIndicator(height, width),
 
-                SizedBox(
-                  height: height * 3.8,
-                ),
-
+                SizedBox(height: height * 3.8),
 
                 //Container das categorias de alimentos.
                 Container(
                   child: Column(
                     children: [
-
                       //Container do texto "CATEGORIES".
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: width * 7),
@@ -252,16 +246,12 @@ class HomePage extends GetView<HomeController> {
                         ),
                       ),
 
-
-                      SizedBox(
-                        height: height * 3.8,
-                      ),
+                      SizedBox(height: height * 3.8),
 
                       // container geral onde era conter o texto "RECOMENDATION" , "SELL ALL", e as imagens.
                       Container(
                         child: Column(
                           children: [
-
                             //Container onde tera o texto "RECOMENDATION" e o "SELL ALL".
                             Container(
                               margin:
@@ -288,11 +278,9 @@ class HomePage extends GetView<HomeController> {
                               ),
                             ),
 
-                            SizedBox(
-                              height: height * 2,
-                            ),
+                            SizedBox(height: height * 2),
 
-                           //Conteiner dos card do recomendation.
+                            //Conteiner dos card do recomendation.
                             Container(
                               margin: EdgeInsets.only(
                                   top: height * 2, bottom: height * 2),
@@ -433,8 +421,8 @@ Widget categorie(String image, String title, double height, double width) {
           ),
         ),
 
-        SizedBox( height: height * 2),
-        
+        SizedBox(height: height * 2),
+
         //nomes de cada categoria de alimento.
         Text(
           title,
@@ -448,8 +436,7 @@ Widget categorie(String image, String title, double height, double width) {
   );
 }
 
-
-//Widget que mostra o card de recomendation na cor escura. 
+//Widget que mostra o card de recomendation na cor escura.
 Widget productDark(double width, double height) {
   return Container(
     width: width * 42,
@@ -459,7 +446,6 @@ Widget productDark(double width, double height) {
         borderRadius: BorderRadius.all(Radius.circular(20))),
     child: Column(
       children: [
-
         //container que tem a imagem de dentro do card.
         Container(
           margin: EdgeInsets.only(
@@ -474,7 +460,7 @@ Widget productDark(double width, double height) {
             ),
           ),
         ),
-        
+
         //container que tem o texto do produto do card.
         Container(
           width: width * 42,
@@ -492,7 +478,6 @@ Widget productDark(double width, double height) {
           ),
         ),
 
-
         Container(
           alignment: Alignment.center,
           height: height * 8,
@@ -506,7 +491,6 @@ Widget productDark(double width, double height) {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-
                       //mostra o cifrao do real.
                       Container(
                         height: height * 8,
@@ -601,8 +585,7 @@ Widget productWhite(double width, double height) {
         borderRadius: BorderRadius.all(Radius.circular(20))),
     child: Column(
       children: [
-
-         //container que tem a imagem de dentro do card.
+        //container que tem a imagem de dentro do card.
         Container(
           margin: EdgeInsets.only(
             right: height * 2,
@@ -646,7 +629,6 @@ Widget productWhite(double width, double height) {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-
                       //mostra o cifrao do real.
                       Container(
                         height: height * 8,
@@ -662,7 +644,7 @@ Widget productWhite(double width, double height) {
                         ),
                       ),
 
-                       //mostra o valor do produto do card.
+                      //mostra o valor do produto do card.
                       Container(
                         alignment: Alignment.topCenter,
                         height: height * 8,
@@ -698,7 +680,7 @@ Widget productWhite(double width, double height) {
                   ),
                 ),
 
-                 //botao de compra o produto.
+                //botao de compra o produto.
                 Container(
                   width: width * 16,
                   height: height * 4.8,
